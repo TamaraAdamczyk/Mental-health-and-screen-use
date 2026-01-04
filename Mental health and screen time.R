@@ -1,0 +1,53 @@
+# Loading the dataset
+data <- read.csv("C:/Users/tamci/Downloads/Mental_Health_and_Social_Media_Balance_Dataset.csv")
+
+# Calculating averages
+avg_screen_time <- mean(data$Daily_Screen_Time.hrs., na.rm = TRUE)
+avg_stress_level <- mean(data$Stress_Level.1.10., na.rm = TRUE)
+avg_sleep_quality <- mean(data$Sleep_Quality.1.10., na.rm = TRUE)
+
+# Printing averages
+cat("Average Daily Screen Time (hrs):", avg_screen_time, "\n")
+cat("Average Stress Level:", avg_stress_level, "\n")
+cat("Average Sleep Quality:", avg_sleep_quality, "\n")
+
+#Creating screen time bands (hours/day)
+screen_time_band <- cut(data$Daily_Screen_Time.hrs., breaks = c(-Inf, 3, 5, 7, 9, 11), labels = c("< 3", "3–4.9", "5–6.9", "7–8.9", "9–10.9"), right = FALSE)
+
+#Average happiness per band
+avg_happiness_by_band <- tapply(data$Happiness_Index.1.10., screen_time_band, mean, na.rm = TRUE)
+
+#Bar chart
+barplot(avg_happiness_by_band, ylim = c(0, 10), xlab = "Screen Time (hrs/day)", ylab = "Average Happiness Level", main = "Average Happiness Level by Screen Time Band", col = "lightblue")
+
+# Scatter Plot with Trendline (Average Stress Level vs Screen Time)
+plot(
+  data$Daily_Screen_Time.hrs.,
+  data$Stress_Level.1.10.,
+  xlab = "Screen Time (hrs/day)",
+  ylab = "Stress Level",
+  main = "Stress Level vs Screen Time",
+  pch = 19
+)
+
+# Add linear trend line
+abline(lm(Stress_Level.1.10. ~ Daily_Screen_Time.hrs., data = data),
+       col = "red",
+       lwd = 2)
+
+# Scatter Plot with TrendLine (Average Happiness Level vs Screen Time)
+
+plot(
+  data$Daily_Screen_Time.hrs.,
+  data$Happiness_Index.1.10.,
+  xlab = "Screen Time (hrs/day)",
+  ylab = "Happiness Level",
+  main = "Happiness Level vs Screen Time",
+  pch = 19
+)
+
+# Add linear trend line
+abline(lm(Happiness_Index.1.10. ~ Daily_Screen_Time.hrs., data = data),
+       col = "red",
+       lwd = 2)
+
