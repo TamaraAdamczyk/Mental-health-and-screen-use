@@ -1,7 +1,7 @@
 # Mental-health-and-screen-use
 Analysis of how screen usage affects stress and happiness levels. Performed in RStudio. Dataset from kaggle: https://www.kaggle.com/code/ahmadindragiri/mental-health-and-social-media-balance/input
 
-This repository contains an R script that explores the relationship between daily screen time and key mental health indicators, using the Mental Health and Social Media Balance dataset (the same dataset as in Power BI excercise).
+This repository contains an R script that explores the relationship between daily screen time and key mental health indicators, using the Mental Health and Social Media Balance dataset.
 
 # This script performs the following:
 
@@ -13,6 +13,7 @@ Sleep quality
 - Groups individuals into predefined screen time bands
 - Computes average happiness levels within each screen time band
 - Produces visualisations to examine relationships between variables
+- Fits the linear regression model (note: First, I wrote a script where I simply used abline to add linear trend line to scatter plots in script named: Mental health and screen time.R, however I wanted to improve my work so I fitted the linear regression model in the improved script named: analysis-with-regression.R)
 
 # Visualisations created
 
@@ -25,6 +26,11 @@ Sleep quality
 - Scatter plot with trendline: happiness level vs daily screen time
   <img width="862" height="512" alt="Happiness Level vs Screen Time" src="https://github.com/user-attachments/assets/034a2979-8ced-4fe8-8503-6a39a9e78ed9" />
 
+## Fitting the linear regression model (stress level vs screen time)
+<img width="580" height="330" alt="image" src="https://github.com/user-attachments/assets/0d25047f-d2c5-4924-bbc1-abc96bc9c2ed" />
+
+## Fitting the linear regression model (happiness level vs screen time)
+<img width="583" height="325" alt="image" src="https://github.com/user-attachments/assets/1cf38fe1-2d6f-4e49-9dc9-99e31e7d71dc" />
 
 # Tools and methods
 
@@ -40,5 +46,3 @@ Mental_Health_and_Social_Media_Balance_Dataset.csv to be available locally. This
 ## Purpose
 
 This project was created for educational and analytical purposes only, demonstrating basic data processing, grouping, and visualisation techniques in R when analysing mental health and behavioural data.
-
-Note to self: Need to add R markdown file!!
